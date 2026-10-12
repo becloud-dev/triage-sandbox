@@ -1,0 +1,3 @@
+#!/bin/sh
+# Print a greeting.
+echo "hello"
