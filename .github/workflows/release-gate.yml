@@ -14,6 +14,7 @@ jobs:
       group: release-gate
       cancel-in-progress: false
     permissions:
+      contents: read # read the default branch tip to compare with the reviewed sha
       issues: read # list the open release-blocker issues and the label events
       pull-requests: read # find the release pull request and its labels
       statuses: write # set the release-gate status on the release pull request head
