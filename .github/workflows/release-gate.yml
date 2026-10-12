@@ -1,0 +1,22 @@
+name: release-gate
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+  issues:
+    types: [labeled, unlabeled, closed, reopened]
+
+permissions: {}
+
+jobs:
+  release-gate:
+    concurrency:
+      group: release-gate
+      cancel-in-progress: false
+    permissions:
+      issues: read # list the open release-blocker issues and the label events
+      pull-requests: read # find the release pull request and its labels
+      statuses: write # set the release-gate status on the release pull request head
+    uses: becloud-dev/workflows/.github/workflows/release-gate.yml@main
+    with:
+      owners: ${{ vars.OWNERS }}
