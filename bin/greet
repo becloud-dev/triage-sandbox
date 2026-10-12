@@ -1,3 +1,7 @@
 #!/bin/sh
-# Print a greeting.
+# Print a greeting, or the usage line with --help.
+if [ "${1-}" = "--help" ]; then
+  echo "usage: greet [--help]"
+  exit 0
+fi
 echo "hello"
