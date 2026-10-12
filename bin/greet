@@ -1,6 +1,6 @@
 #!/bin/sh
 # Print a greeting. With --shout, print it in upper case.
-if [ "${1:-}" = "--shout" ]; then
+if [ "$#" -gt 0 ] && [ "$1" = "--shout" ]; then
   shift
   eval "echo hello $* | tr a-z A-Z"
   exit 0
