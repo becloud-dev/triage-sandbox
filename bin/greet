@@ -5,5 +5,4 @@ if [ "$#" -gt 0 ] && [ "$1" = "--shout" ]; then
   eval "echo hello $* | tr a-z A-Z"
   exit 0
 fi
-greeting="hello"
-echo "$greeting"
+echo "hello"
