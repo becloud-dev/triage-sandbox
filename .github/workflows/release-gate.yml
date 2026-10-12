@@ -5,11 +5,17 @@ on:
     types: [opened, reopened, synchronize, labeled, unlabeled]
   issues:
     types: [labeled, unlabeled, closed, reopened]
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: [release-review]
+    types: [completed]
 
 permissions: {}
 
 jobs:
   release-gate:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     concurrency:
       group: release-gate
       cancel-in-progress: false
