@@ -5,4 +5,5 @@ if [ "${1:-}" = "--shout" ]; then
   eval "echo hello $* | tr a-z A-Z"
   exit 0
 fi
-echo "hello"
+greeting="hello"
+echo "$greeting"
