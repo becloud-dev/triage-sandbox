@@ -22,5 +22,6 @@ jobs:
       setup_command: ${{ vars.SETUP_COMMAND }}
       check_command: ${{ vars.CHECK_COMMAND }}
       test_command: ${{ vars.TEST_COMMAND }}
+      test_paths: ${{ vars.TEST_PATHS }}
     secrets:
       claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
